@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4d281bd39e08e884e9c2247a33ec3d2e, type: 3}
+  m_Name: Raiz_Triturada
+  m_EditorClassIdentifier: 
+  itemName: RaizTriturada
+  description: "Polvo de una ra\xEDz"
+  icon: {fileID: 21300000, guid: fa24e48f64c163e45b20e766cb277713, type: 3}
