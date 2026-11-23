@@ -17,11 +17,23 @@ public class FirstPersonMover : MonoBehaviour
     public Raycast cast;
     public RotationCamera rotCam;
 
+    //For maqueta
     bool canF = false;
     bool isWatching = false;
     bool hasPocion = true;
 
-    public PocionObjeto pocion;
+    //For pocion
+    public PocionObjeto pocion; //Pocion actual en uso
+    public Pociones datosPocion1; //Pocion en mano 1
+    public Pociones datosPocion2; //Pocion en mano 2
+
+    private int usosPocion1 = 0;
+    private int usosPocion2 = 0;
+    private int slotActual = 0; //Pocion que está "activa"
+
+    public Transform whereMano;
+    public GameObject pocionVisual;
+
     //Se dibujan 2 esferas, la segunda detectará si hay suelo o no
     private void OnDrawGizmos()
     {
@@ -44,7 +56,6 @@ public class FirstPersonMover : MonoBehaviour
         isWatching = false;
         hasPocion = true;
     }
-
 
     void FixedUpdate()
     {
@@ -73,7 +84,7 @@ public class FirstPersonMover : MonoBehaviour
         {
             rotCam.miraMaqueta = true;
             isWatching = true;
-
+            rb.constraints |= RigidbodyConstraints.FreezeRotationY;
             if (hasPocion)
             {
                 cast.canRaycast = true;
@@ -84,7 +95,7 @@ public class FirstPersonMover : MonoBehaviour
         {
             rotCam.miraMaqueta = false;
             isWatching = false;
-
+            rb.constraints &= ~RigidbodyConstraints.FreezeRotationY;
             cast.canRaycast = false;
         }
 
@@ -115,9 +126,13 @@ public class FirstPersonMover : MonoBehaviour
                 }
             }
         }
-        if (input.Player.Next.WasPressedThisFrame())
+        if (input.Player.Pocion1.WasPressedThisFrame())
         {
-            hasPocion = true;
+            PocionEnUso(1);
+        }
+        if (input.Player.Pocion2.WasPressedThisFrame())
+        {
+            PocionEnUso(2);
         }
     }
 
@@ -134,5 +149,62 @@ public class FirstPersonMover : MonoBehaviour
         {
             canF = false;
         }
+    }
+    public void PocionEnUso(int cual)
+    {
+        Pociones datos;
+        int usos;
+        switch (cual)
+        {
+            case 1:
+                datos = datosPocion1;
+                usos = usosPocion1;
+                break;
+            case 2:
+                datos = datosPocion2;
+                usos = usosPocion2;
+                break;
+            default:
+                datos = null;
+                usos = 0;
+                break;
+        }
+        if(datos == null || datos.prefabBotella == null || usos <= 0)
+        {
+            return;
+        }
+        if(pocion != null)
+        {
+            Destroy(pocion.gameObject);
+        }
+        GameObject objPocion = Instantiate(datos.prefabBotella, whereMano.position, whereMano.rotation, whereMano);
+        pocion = objPocion.GetComponent<PocionObjeto>();
+        pocion.datosPocion = datos;
+        pocion.usosRestantes = usos;
+        slotActual = cual;
+        if (isWatching) cast.canRaycast = true;
+    }
+
+    public bool CanCogerPocionYObtenerPocion(Pociones nuevaPocion)
+    {
+        if(nuevaPocion == null) return false;
+
+        if (usosPocion1 <= 0)
+        {
+            datosPocion1 = nuevaPocion;
+            usosPocion1 = nuevaPocion.usosTotales;
+            PocionEnUso(1);
+            return true;
+        }
+
+        if (usosPocion2 <= 0)
+        {
+            datosPocion2 = nuevaPocion;
+            usosPocion2 = nuevaPocion.usosTotales;
+            PocionEnUso(2);
+            return true;
+        }
+
+        return false;
     }
 }

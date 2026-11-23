@@ -503,23 +503,31 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 0}
+    m_TransformParent: {fileID: 1458438334}
     m_Modifications:
     - target: {fileID: 1664055235443454072, guid: 402c4fd5ee453fc42953b0e2e133be44, type: 3}
       propertyPath: m_Name
       value: Potion_Menguar
       objectReference: {fileID: 0}
     - target: {fileID: 5020665589999976151, guid: 402c4fd5ee453fc42953b0e2e133be44, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 178.57144
+      objectReference: {fileID: 0}
+    - target: {fileID: 5020665589999976151, guid: 402c4fd5ee453fc42953b0e2e133be44, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 181.81819
+      objectReference: {fileID: 0}
+    - target: {fileID: 5020665589999976151, guid: 402c4fd5ee453fc42953b0e2e133be44, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -2.454
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5020665589999976151, guid: 402c4fd5ee453fc42953b0e2e133be44, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.373
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5020665589999976151, guid: 402c4fd5ee453fc42953b0e2e133be44, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 1.436
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5020665589999976151, guid: 402c4fd5ee453fc42953b0e2e133be44, type: 3}
       propertyPath: m_LocalRotation.w
@@ -531,7 +539,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5020665589999976151, guid: 402c4fd5ee453fc42953b0e2e133be44, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 5020665589999976151, guid: 402c4fd5ee453fc42953b0e2e133be44, type: 3}
       propertyPath: m_LocalRotation.z
@@ -554,6 +562,22 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 402c4fd5ee453fc42953b0e2e133be44, type: 3}
+--- !u!4 &766808209 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5020665589999976151, guid: 402c4fd5ee453fc42953b0e2e133be44, type: 3}
+  m_PrefabInstance: {fileID: 766808208}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &766808210 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1064078924966877878, guid: 402c4fd5ee453fc42953b0e2e133be44, type: 3}
+  m_PrefabInstance: {fileID: 766808208}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a8afdbc54c8af144b92be6b19085eec4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &941157011
 GameObject:
   m_ObjectHideFlags: 0
@@ -5615,12 +5639,17 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1064078924966877878, guid: 08714c9187a2aaf49a9de69c2b72e44f, type: 3}
   m_PrefabInstance: {fileID: 1284430112}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 1284430115}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a8afdbc54c8af144b92be6b19085eec4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &1284430115 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1664055235443454072, guid: 08714c9187a2aaf49a9de69c2b72e44f, type: 3}
+  m_PrefabInstance: {fileID: 1284430112}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1328779029
 GameObject:
   m_ObjectHideFlags: 0
@@ -5730,6 +5759,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1284430113}
+  - {fileID: 766808209}
   m_Father: {fileID: 7276666241118558211}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1464726266 stripped
@@ -9674,6 +9704,11 @@ MonoBehaviour:
   cast: {fileID: 675342686}
   rotCam: {fileID: 7712211942624742310}
   pocion: {fileID: 1284430114}
+  pocion2: {fileID: 766808210}
+  pocionInicial1: {fileID: 11400000, guid: e5840edd95710b649baf978ea424862a, type: 2}
+  pocionInicial2: {fileID: 11400000, guid: f11d4c4eace79824daa6ef92bff703d9, type: 2}
+  whereMano: {fileID: 1458438334}
+  pocionVisual: {fileID: 1284430115}
 --- !u!114 &7712211942624742310
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10113,4 +10148,3 @@ SceneRoots:
   - {fileID: 1328779032}
   - {fileID: 1218985037907128284}
   - {fileID: 711090678}
-  - {fileID: 766808208}

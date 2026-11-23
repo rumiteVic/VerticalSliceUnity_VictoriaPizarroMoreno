@@ -70,9 +70,18 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "Next",
+                    "name": "Pocion2",
                     "type": "Button",
                     "id": "b7230bb6-fc9b-4f52-8b25-f5e19cb2c2ba",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Pocion1",
+                    "type": "Button",
+                    "id": "d31def2d-466b-45ef-8a61-722c8db28f4b",
                     "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
@@ -327,7 +336,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "Keyboard&Mouse",
-                    "action": "Next",
+                    "action": "Pocion2",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -338,7 +347,29 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "Gamepad",
-                    "action": "Next",
+                    "action": "Pocion2",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "29724d6a-a4fe-4dd7-8cce-dec7a65ed7db",
+                    "path": "<Keyboard>/1",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard&Mouse",
+                    "action": "Pocion1",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "441b64a2-5452-4c21-a502-a42da98c98df",
+                    "path": "<Gamepad>/dpad/right",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Gamepad",
+                    "action": "Pocion1",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },

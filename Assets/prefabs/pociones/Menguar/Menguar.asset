@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: Menguar
   m_EditorClassIdentifier: 
   nombre: MenguarMediana
-  prefab: {fileID: 8498371489894090554, guid: c526309a6e5411d47a5ede8fe7e7fea1, type: 3}
+  prefab: {fileID: 8498371489894090554, guid: c4cf6dff41a6fae4dbf7b9c21456655e, type: 3}
   prefabBotella: {fileID: 1664055235443454072, guid: 402c4fd5ee453fc42953b0e2e133be44, type: 3}
   description: Ni idea
-  efectos: 1
+  efectos: 2
   usosTotales: 2
