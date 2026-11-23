@@ -16,7 +16,7 @@ TagManager:
   - ground
   - bola
   - AfectarObjeto
-  - 
+  - mainMenu
   - 
   - 
   - 
@@ -40,6 +40,9 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: MainMenu
+    uniqueID: 3850606843
+    locked: 0
   - name: Default
     uniqueID: 0
     locked: 0
@@ -52,3 +55,4 @@ TagManager:
   - Light Layer 5
   - Light Layer 6
   - Light Layer 7
+  m_MigratedRenderPipelines: []
