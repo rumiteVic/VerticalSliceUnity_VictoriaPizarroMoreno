@@ -29,10 +29,8 @@ public class FirstPersonMover : MonoBehaviour
 
     private int usosPocion1 = 0;
     private int usosPocion2 = 0;
-    private int slotActual = 0; //Pocion que está "activa"
 
     public Transform whereMano;
-    public GameObject pocionVisual;
 
     //Se dibujan 2 esferas, la segunda detectará si hay suelo o no
     private void OnDrawGizmos()
@@ -117,13 +115,23 @@ public class FirstPersonMover : MonoBehaviour
                 GameObject nuevaBola = Instantiate(pocion.datosPocion.prefab, bolaPosition, transform.rotation);
                 pocion.QuitarUsos();
 
-                if(pocion.usosRestantes <= 0)
+                if (pocion.datosPocion == datosPocion1)
+                {
+                    usosPocion1 = pocion.usosRestantes;
+                }
+                else if (pocion.datosPocion == datosPocion2)
+                {
+                    usosPocion2 = pocion.usosRestantes;
+                }
+
+                if (pocion.usosRestantes <= 0)
                 {
                     Destroy(pocion.gameObject);
                     pocion = null;
                     hasPocion = false;
                     cast.canRaycast = false;
                 }
+                
             }
         }
         if (input.Player.Pocion1.WasPressedThisFrame())
@@ -153,7 +161,7 @@ public class FirstPersonMover : MonoBehaviour
     public void PocionEnUso(int cual)
     {
         Pociones datos;
-        int usos;
+        int usos = 0;
         switch (cual)
         {
             case 1:
@@ -169,19 +177,23 @@ public class FirstPersonMover : MonoBehaviour
                 usos = 0;
                 break;
         }
-        if(datos == null || datos.prefabBotella == null || usos <= 0)
-        {
-            return;
-        }
-        if(pocion != null)
+        if (pocion != null)
         {
             Destroy(pocion.gameObject);
+            pocion = null;
         }
+        if (datos == null || datos.prefabBotella == null || usos <= 0)
+        {
+            hasPocion = false;
+            cast.canRaycast = false;
+            return;
+        }
+        
         GameObject objPocion = Instantiate(datos.prefabBotella, whereMano.position, whereMano.rotation, whereMano);
         pocion = objPocion.GetComponent<PocionObjeto>();
         pocion.datosPocion = datos;
         pocion.usosRestantes = usos;
-        slotActual = cual;
+        hasPocion = true;
         if (isWatching) cast.canRaycast = true;
     }
 
