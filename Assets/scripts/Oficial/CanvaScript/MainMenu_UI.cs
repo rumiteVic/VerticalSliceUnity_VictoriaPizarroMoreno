@@ -9,8 +9,10 @@ public class MainMenu_UI : MonoBehaviour
     public GameObject menuControles;
     public GameObject HUD;
     public GameObject libro;
+    public GameObject inventario;
     public bool isMainMenu;
     bool isLibroAbierto =false;
+    bool isInventarioAbierto =false;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -23,6 +25,7 @@ public class MainMenu_UI : MonoBehaviour
             menuControles.SetActive(false);
             HUD.SetActive(false);
             libro.SetActive(false);
+            inventario.SetActive(false);
         }
         //Sino mostrar hud del game
         else
@@ -33,6 +36,7 @@ public class MainMenu_UI : MonoBehaviour
             menuControles.SetActive(false);
             HUD.SetActive(true);
             libro.SetActive(false);
+            inventario.SetActive(false);
         }
     }
 
@@ -49,6 +53,7 @@ public class MainMenu_UI : MonoBehaviour
         menuControles.SetActive(false);
         HUD.SetActive(false);
         libro.SetActive(false);
+        inventario.SetActive(false);
     }
 
     public void GoToOptions()
@@ -59,6 +64,7 @@ public class MainMenu_UI : MonoBehaviour
         menuControles.SetActive(false);
         HUD.SetActive(false);
         libro.SetActive(false);
+        inventario.SetActive(false);
     }
     public void SalirGame()
     {
@@ -73,6 +79,7 @@ public class MainMenu_UI : MonoBehaviour
         menuControles.SetActive(false);
         HUD.SetActive(false);
         libro.SetActive(false);
+        inventario.SetActive(false);
     }
 
     public void ReturnButton()
@@ -94,6 +101,7 @@ public class MainMenu_UI : MonoBehaviour
         menuControles.SetActive(true);
         HUD.SetActive(false);
         libro.SetActive(false);
+        inventario.SetActive(false);
     }
 
     //Botones del hud
@@ -106,6 +114,7 @@ public class MainMenu_UI : MonoBehaviour
         menuControles.SetActive(false);
         HUD.SetActive(false);
         libro.SetActive(false);
+        inventario.SetActive(false);
     }
 
     public void ReturnToGame()
@@ -117,6 +126,7 @@ public class MainMenu_UI : MonoBehaviour
         menuControles.SetActive(false);
         HUD.SetActive(true);
         libro.SetActive(false);
+        inventario.SetActive(false);
     }
 
     public void AbrirYCerrarLibro()
@@ -129,6 +139,7 @@ public class MainMenu_UI : MonoBehaviour
             menuControles.SetActive(false);
             HUD.SetActive(true);
             libro.SetActive(false);
+            inventario.SetActive(false);
             isLibroAbierto = false;
         }
         if (!isLibroAbierto)
@@ -137,9 +148,35 @@ public class MainMenu_UI : MonoBehaviour
             menuOpciones.SetActive(false);
             menuPausa.SetActive(false);
             menuControles.SetActive(false);
-            HUD.SetActive(true);
+            HUD.SetActive(false);
             libro.SetActive(true);
+            inventario.SetActive(false);
             isLibroAbierto = true;
+        }
+    }
+    public void AbrirInventario()
+    {
+        if (isInventarioAbierto)
+        {
+            mainMenu.SetActive(false);
+            menuOpciones.SetActive(false);
+            menuPausa.SetActive(false);
+            menuControles.SetActive(false);
+            HUD.SetActive(true);
+            libro.SetActive(false);
+            inventario.SetActive(false);
+            isInventarioAbierto = false;
+        }
+        if (!isInventarioAbierto)
+        {
+            mainMenu.SetActive(false);
+            menuOpciones.SetActive(false);
+            menuPausa.SetActive(false);
+            menuControles.SetActive(false);
+            HUD.SetActive(false);
+            libro.SetActive(false);
+            inventario.SetActive(true);
+            isInventarioAbierto = true;
         }
     }
 }
