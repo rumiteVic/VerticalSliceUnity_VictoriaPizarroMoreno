@@ -6,6 +6,9 @@ public class Mortero : MonoBehaviour
     public ItemGeneral objetoAlFinalizar;
 
     public int cantidadObtenida = 1;
+
+    int aplastamientoNecesario = 1;
+    int aplastamientoHecho = 0;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
